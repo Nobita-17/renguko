@@ -1,59 +1,50 @@
 import 'package:flutter/material.dart';
 
+class MyAppHome extends StatefulWidget {
+  const MyAppHome({Key? key}) : super(key: key);
 
-
-class MyHomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyAppHome> createState() => _MyAppHomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  List<Widget> _floatingActionButtons = [];
+class _MyAppHomeState extends State<MyAppHome> {
+  bool _isShow = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Floating Action Button Demo'),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                // Add three floating action buttons
-                setState(() {
-                  _floatingActionButtons = [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Perform action for the first floating action button
-                        print('First button clicked');
-                      },
-                      child: Icon(Icons.add),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Perform action for the second floating action button
-                        print('Second button clicked');
-                      },
-                      child: Icon(Icons.edit),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Perform action for the third floating action button
-                        print('Third button clicked');
-                      },
-                      child: Icon(Icons.delete),
-                    ),
-                  ];
-                });
-              },
-              child: Text('Add Floating Action Buttons'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text('button1')),
+                SizedBox(width: 10,),
+                ElevatedButton(onPressed: () {}, child: Text('button2')),
+                SizedBox(width: 10,),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isShow = !_isShow;
+                    });
+                  },
+                  child: Text('button3'),
+                ),
+              ],
             ),
-            SizedBox(height: 16),
-            // Display the added floating action buttons
-            ..._floatingActionButtons,
+            SizedBox(height: 20,),
+            if (_isShow)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 10,),
+                  ElevatedButton(onPressed: () {}, child: Text('child1')),
+                  SizedBox(width: 10,),
+                  ElevatedButton(onPressed: () {}, child: Text('child2')),
+                ],
+              ),
           ],
         ),
       ),

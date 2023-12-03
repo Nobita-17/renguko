@@ -8,53 +8,46 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  List<Widget> _floatingActionButtons = [];
+
+  bool _isShow = false;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton(
-          onPressed: () {
-            // Add three floating action buttons
-            setState(() {
-              _floatingActionButtons = [
+    return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text('button1')),
+                SizedBox(width: 10,),
+                ElevatedButton(onPressed: () {}, child: Text('button2')),
+                SizedBox(width: 10,),
                 ElevatedButton(
                   onPressed: () {
-                    // Perform action for the first floating action button
-                    print('First button clicked');
+                    setState(() {
+                      _isShow = !_isShow;
+                    });
                   },
-                  child: Icon(Icons.add),
+                  child: Text('button3'),
                 ),
-                SizedBox(width: 8), // Add space between buttons
-                ElevatedButton(
-                  onPressed: () {
-                    // Perform action for the second floating action button
-                    print('Second button clicked');
-                  },
-                  child: Icon(Icons.edit),
-                ),
-                SizedBox(width: 8), // Add space between buttons
-                ElevatedButton(
-                  onPressed: () {
-                    // Perform action for the third floating action button
-                    print('Third button clicked');
-                  },
-                  child: Icon(Icons.delete),
-                ),
-              ];
-            });
-          },
-          child: Text('Add Floating Action Buttons'),
+              ],
+            ),
+            SizedBox(height: 20,),
+            if (_isShow)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 10,),
+                  ElevatedButton(onPressed: () {}, child: Text('child1')),
+                  SizedBox(width: 10,),
+                  ElevatedButton(onPressed: () {}, child: Text('child2')),
+                ],
+              ),
+          ],
         ),
-        SizedBox(height: 16),
-        // Display the added floating action buttons
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Adjust as needed
-          children: _floatingActionButtons,
-        ),
-      ],
-    );
+      );
+
   }
-}
+  }
