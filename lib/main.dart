@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:renguko/screen/flating.dart';
+import 'package:renguko/screen/home.dart';
 import 'package:renguko/screen/splash.dart';
 
 void main() {
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Add your MaterialApp configurations here
       home:  Scaffold(
-        body: SplashScreen(),
+        body: HomeScreen(),
       ),
     );
   }
