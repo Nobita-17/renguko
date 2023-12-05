@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renguko/screen/chat.dart';
 import 'package:renguko/screen/flating.dart';
 import 'package:renguko/screen/home.dart';
 import 'package:renguko/screen/splash.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       // Add your MaterialApp configurations here
       home:  Scaffold(
         // body: HomeScreen(),
-        body : Textspeech(),
+        body :Textspeech(),
       ),
     );
   }
