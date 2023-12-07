@@ -63,6 +63,10 @@ flutter:
   assets:
     - assets/images/Ren.jpeg
     - assets/images/Kamado-Tanjiro_1.jpg
+    - assets/images/speak.jpeg
+    - assets/images/R_smile.gif
+    - assets/images/R_fight.gif
+    - assets/images/R-eat.gif
     - assets/images/Ren.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -81,6 +81,7 @@ class _JumpingDotsProgressIndicatorState
       _addAnimationControllers();
       _buildAnimations(i);
       _addListOfDots(i);
+      print('my progress');
     }
 
     controllers[0].forward();

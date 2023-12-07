@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:renguko/Food.dart';
+import 'package:renguko/screen/smile.dart';
+
+import 'chat.dart';
+import 'fight.dart';
 
 class CustomButton extends StatefulWidget {
   const CustomButton({super.key});
@@ -20,7 +25,12 @@ class _CustomButtonState extends State<CustomButton> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatScreen()),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Row(
@@ -99,7 +109,9 @@ class _CustomButtonState extends State<CustomButton> {
                   height: 10,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodScreen()));
+                  },
                   child: Row(
                     children: [
                       Icon(Icons.emoji_food_beverage_outlined),
@@ -118,7 +130,9 @@ class _CustomButtonState extends State<CustomButton> {
                   width: 10,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SmileScreen()));
+                  },
                   child: Row(
                     children: [
                       Icon(Icons.face),
@@ -137,7 +151,12 @@ class _CustomButtonState extends State<CustomButton> {
                   width: 10,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FightScreen()),
+                    );
+                  },
                   child: Row(
                     children: [
                       Icon(Icons.light_mode_outlined),

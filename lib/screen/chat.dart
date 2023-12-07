@@ -8,15 +8,12 @@ class ChatScreen extends StatefulWidget {
 
   _ChatScreenState createState() => _ChatScreenState();
 }
-
 class _ChatScreenState extends State<ChatScreen> {
   FlutterTts flutterTts = FlutterTts();
 
-
   List<String> messages = [];
   final TextEditingController textController = TextEditingController();
-  bool isSpeaking=false;
-
+  bool isSpeaking = false;
 
   @override
   void initState() {
@@ -41,7 +38,7 @@ class _ChatScreenState extends State<ChatScreen> {
     }
     await flutterTts.speak(textToSpeak);
     if (textToSpeak.isNotEmpty) {
-      isSpeaking=true;
+      isSpeaking = true;
     } else {
       print('Text is empty. Enter some text to speak.');
     }
@@ -49,11 +46,10 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
-            height: 300, // Fixed height for the ListView
+    return Material(
+      child: Column(
+        children: [
+          Expanded(
             child: ListView.builder(
               reverse: true,
               itemCount: messages.length,
@@ -62,46 +58,39 @@ class _ChatScreenState extends State<ChatScreen> {
               },
             ),
           ),
-        ),
-        if(isSpeaking)
-          Column(
-            children: [
-              JumpingDotsProgressIndicator(), // Jumping dots while speaking
-              SizedBox(height: 10),
-              Text('Speaking...'),
-            ],
-          ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: textController,
-                  onChanged: (message) {
+          if (isSpeaking)
+            Column(
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('images/speak.jpeg'), // Corrected path
+                ),
+                SizedBox(height: 10),
+                Text('Speaking...'),
+              ],
+            ),
+         if(isSpeaking==false)
+           Text('Type Your Message'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: textController,
+                    onChanged: (message) {},
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.send),
+                  onPressed: () {
+                    _speakText();
                   },
                 ),
-              ),
-              IconButton(
-                icon: Icon(Icons.send),
-                onPressed: () {
-                  _speakText();
-                },
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
-
-//   void sendMessage() {
-//     String newMessage = textController.text.trim();
-//     if (newMessage.isNotEmpty) {
-//       messages.insert(0, newMessage);
-//       textController.clear();
-//       setState(() {});
-//     }
-//   }
-// }

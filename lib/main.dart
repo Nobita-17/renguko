@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       // Add your MaterialApp configurations here
       home:  Scaffold(
         // body: HomeScreen(),
-        body :Textspeech(),
+        body :SplashScreen(),
       ),
     );
   }
