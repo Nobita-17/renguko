@@ -4,6 +4,7 @@ import 'package:renguko/screen/flating.dart';
 import 'package:renguko/screen/home.dart';
 import 'package:renguko/screen/splash.dart';
 import 'package:renguko/screen/textspeech.dart';
+import 'package:renguko/screen/tictac.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       // Add your MaterialApp configurations here
       home:  Scaffold(
         // body: HomeScreen(),
-        body :SplashScreen(),
+        body :TicTacToeScreen(),
       ),
     );
   }
