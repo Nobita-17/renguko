@@ -26,7 +26,7 @@ class _GameState extends State<Game> {
                 itemCount: 9,
                 gridDelegate:
                     SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
-                itemBuilder: (BuildContext context, int index) {
+                itemBuilder: (BuildContext context, int index) {   //hecking
                   return GestureDetector(
                     onTap: () {},
                     child: Container(
