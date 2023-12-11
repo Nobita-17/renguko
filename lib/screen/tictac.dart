@@ -8,6 +8,7 @@ class Game extends StatefulWidget {
 }
 
 class _GameState extends State<Game> {
+  List<String> displayXO = ['', '', '', '', '', '', '', '', ''];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
