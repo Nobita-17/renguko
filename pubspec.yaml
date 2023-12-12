@@ -67,6 +67,7 @@ flutter:
     - assets/images/R_smile.gif
     - assets/images/R_fight.gif
     - assets/images/R-eat.gif
+    - assets/images/devil.jpeg
     - assets/images/Ren.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

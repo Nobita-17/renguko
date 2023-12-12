@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       // Add your MaterialApp configurations here
       home:  Scaffold(
         // body: HomeScreen(),
-        body :Game(),
+        body :SplashScreen(),
       ),
     );
   }

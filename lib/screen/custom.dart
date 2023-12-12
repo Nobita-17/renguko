@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:renguko/Food.dart';
 import 'package:renguko/screen/smile.dart';
+import 'package:renguko/screen/tictac.dart';
 
 import 'chat.dart';
 import 'fight.dart';
@@ -52,7 +53,9 @@ class _CustomButtonState extends State<CustomButton> {
                 width: 10,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Game()));
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Row(
