@@ -3,6 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 import 'chatbubble.dart';
 import 'dotindicator.dart';
+import 'home.dart';
 class ChatScreen extends StatefulWidget {
   @override
 
@@ -47,49 +48,64 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              reverse: true,
-              itemCount: messages.length,
-              itemBuilder: (context, index) {
-                return ChatBubble(message: messages[index]);
-              },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.orangeAccent,
+          actions: [
+            IconButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  HomeScreen()),
+              );
+            }, icon: Icon(Icons.arrow_back)),
+          ],
+          title: Text('Lets Chat with Hashira',style: TextStyle(fontSize: 22),),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                reverse: true,
+                itemCount: messages.length,
+                itemBuilder: (context, index) {
+                  return ChatBubble(message: messages[index]);
+                },
+              ),
             ),
-          ),
-          if (isSpeaking)
-            Column(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage('images/speak.jpeg'), // Corrected path
-                ),
-                SizedBox(height: 10),
-                Text('Speaking...'),
-              ],
-            ),
-         if(isSpeaking==false)
-           Text('Type Your Message'),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: textController,
-                    onChanged: (message) {},
+            if (isSpeaking)
+              Column(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage('images/speak.jpeg'), // Corrected path
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: () {
-                    _speakText();
-                  },
-                ),
-              ],
+                  SizedBox(height: 10),
+                  Text('Speaking...'),
+                ],
+              ),
+           if(isSpeaking==false)
+             Text('Type Your Message'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: textController,
+                      onChanged: (message) {},
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.send),
+                    onPressed: () {
+                      _speakText();
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

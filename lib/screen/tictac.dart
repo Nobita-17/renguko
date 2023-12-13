@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renguko/screen/home.dart';
 
 class Game extends StatefulWidget {
   const Game({Key? key}) : super(key: key);
@@ -71,6 +72,18 @@ class _GameState extends State<Game> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  HomeScreen()),
+            );
+          }, icon: Icon(Icons.arrow_back)),
+        ],
+        title: Text('Tic Tac Toe Game',style: TextStyle(fontSize: 22),),
+        centerTitle: true,
+      ),
       backgroundColor: Colors.orange,
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -127,21 +140,23 @@ class _GameState extends State<Game> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: _clearBoard,
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.yellow),
-                      shape: MaterialStateProperty.all<OutlinedBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                  Flexible(
+                    child: ElevatedButton(
+                      onPressed: _clearBoard,
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        'Restart',
-                        style: TextStyle(fontSize: 24, color: Colors.black),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                          'Restart',
+                          style: TextStyle(fontSize: 24, color: Colors.black),
+                        ),
                       ),
                     ),
                   ),

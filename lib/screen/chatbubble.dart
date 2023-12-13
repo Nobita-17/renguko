@@ -17,17 +17,23 @@ class ChatBubble extends StatelessWidget {
           color: Colors.orangeAccent,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Row(
+        child: Wrap(
           children: [
-            CircleAvatar( backgroundImage: AssetImage('/images/Kamado-Tanjiro_1.jpg'),),
-            SizedBox(width: 10,),
-            Text(
-              message,
-              style: TextStyle(color: Colors.white,fontSize: 25),
+            Row(
+              children: [
+                CircleAvatar( backgroundImage: AssetImage('/images/Kamado-Tanjiro_1.jpg'),),
+                SizedBox(width: 10,),
+                Expanded(
+                  child: Text(
+                    message,
+                    style: TextStyle(color: Colors.white,fontSize: 25),
+                  ),
+                ),
+              ],
             ),
           ],
+          ),
         ),
-      ),
     );
   }
 }

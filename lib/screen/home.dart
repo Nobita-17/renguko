@@ -5,6 +5,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orangeAccent,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -13,14 +14,24 @@ class HomeScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/Ren.jpeg'),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
-            Center(
-              child: CustomButton(),
+            Container(
+              height: 90,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: CustomButton(),
+                ),
+              ),
             ),
-            SizedBox(height: 45,),
+            // SizedBox(height: 45,),
           ], // Add this bracket
         ),
       );
