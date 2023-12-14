@@ -3,7 +3,7 @@ import 'custom.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //images
     return Scaffold(
       backgroundColor: Colors.orangeAccent,
         body: Column(
